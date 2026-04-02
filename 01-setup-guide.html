@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guide 01: Turn AI From a Chatbot Into an Employee</title>
+    <meta name="description" content="4 things that make AI remember your project, stay sharp for hours, follow your standards, and work across your tools. Step-by-step with copy-paste templates.">
+
+    <meta property="og:title" content="Turn AI From a Chatbot Into an Employee -- Setup Guide">
+    <meta property="og:description" content="4 things. 30 minutes total. Templates, commands, and configs included. Just follow the steps.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://ai-guides-yash.vercel.app/guides/01-setup-guide">
+    <meta property="og:image" content="https://ai-guides-yash.vercel.app/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: #0a0a0a;
+            color: #d4d4d4;
+            line-height: 1.75;
+            font-size: 15.5px;
+        }
+        .container { max-width: 780px; margin: 0 auto; padding: 40px 24px 60px; }
+
+        /* ---- HEADER ---- */
+        .hero {
+            text-align: center;
+            padding: 56px 0 44px;
+            border-bottom: 1px solid #1a1a1a;
+            margin-bottom: 52px;
+        }
+        .hero .badge {
+            display: inline-block;
+            background: #112240;
+            color: #5b9ee6;
+            padding: 5px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            margin-bottom: 22px;
+        }
+        .hero h1 {
+            font-size: 34px;
+            font-weight: 800;
+            color: #fff;
+            line-height: 1.25;
+            margin-bottom: 14px;
+        }
+        .hero .sub {
+            font-size: 17px;
+            color: #777;
+            max-width: 560px;
+            margin: 0 auto 20px;
+        }
+        .hero .by {
+            font-size: 13px;
+            color: #555;
+        }
+        .hero .by a { color: #5b9ee6; text-decoration: none; }
+
+        /* ---- GLOBAL UTILITIES ---- */
+        h2 {
+            font-size: 26px;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+        h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #e0e0e0;
+            margin: 28px 0 10px;
+        }
+        h4 {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.6px;
+            color: #666;
+            margin: 32px 0 14px;
+        }
+        p { margin-bottom: 14px; }
+        strong { color: #eee; }
+        hr.sep {
+            border: none;
+            border-top: 1px solid #1a1a1a;
+            margin: 56px 0;
+        }
+
+        /* ---- PROBLEM BOX ---- */
+        .problem {
+            background: #160d0d;
+            border: 1px solid #301818;
+            border-radius: 10px;
+            padding: 28px 28px 20px;
+            margin-bottom: 52px;
+        }
+        .problem .label {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #d45; margin-bottom: 14px;
+        }
+        .problem ul { list-style: none; padding: 0; }
+        .problem li {
+            padding: 7px 0 7px 24px;
+            position: relative;
+            color: #c88;
+        }
+        .problem li::before {
+            content: "\2717"; position: absolute; left: 0;
+            color: #d45; font-weight: 700;
+        }
+
+        /* ---- RESULT BOX ---- */
+        .result {
+            background: #0d160d;
+            border: 1px solid #183018;
+            border-radius: 10px;
+            padding: 28px;
+            margin: 24px 0 32px;
+        }
+        .result .label {
+            font-size: 12px; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 1.5px;
+            color: #4a4; margin-bottom: 14px;
+        }
+        .result ul { list-style: none; padding: 0; }
+        .result li {
+            padding: 7px 0 7px 24px;
+            position: relative; color: #8c8;
+        }
+        .result li::before {
+            content: "\2713"; position: absolute; left: 0;
+            color: #4a4; font-weight: 700;
+        }
+
+        /* ---- SECTION CARD ---- */
+        .card {
+            background: #111;
+            border: 1px solid #1e1e1e;
+            border-radius: 10px;
+            padding: 32px;
+            margin-bottom: 28px;
+            position: relative;
+            overflow: hidden;
+        }
+        .card::before {
+            content: '';
+            position: absolute; top: 0; left: 0;
+            width: 4px; height: 100%;
+        }
+        .card.c1::before { background: #1e40af; }
+        .card.c2::before { background: #7c3aed; }
+        .card.c3::before { background: #0891b2; }
+        .card.c4::before { background: #059669; }
+        .card .num {
+            font-size: 11px; font-weight: 800;
+            text-transform: uppercase; letter-spacing: 2.5px;
+            margin-bottom: 6px;
+        }
+        .card.c1 .num { color: #3b82f6; }
+        .card.c2 .num { color: #a78bfa; }
+        .card.c3 .num { color: #22d3ee; }
+        .card.c4 .num { color: #34d399; }
+        .card > h2 { margin-bottom: 4px; }
+        .card .desc {
+            color: #777; font-size: 15px; margin-bottom: 22px;
+        }
+
+        /* ---- CODE ---- */
+        .code {
+            background: #0a0a0a;
+            border: 1px solid #181818;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 14px 0 18px;
+            overflow-x: auto;
+        }
+        .code .file {
+            display: inline-block;
+            background: #112240;
+            color: #5b9ee6;
+            padding: 2px 10px;
+            border-radius: 4px;
+            font-size: 11.5px;
+            font-family: 'JetBrains Mono', 'Fira Code', monospace;
+            margin-bottom: 12px;
+        }
+        .code pre {
+            font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+            font-size: 13px; color: #bbb; line-height: 1.65;
+            white-space: pre-wrap; word-wrap: break-word;
+        }
+        .cm { color: #555; }
+        .kw { color: #5b9ee6; }
+        .vl { color: #6ec86e; }
+        .hl { color: #e0c85a; }
+        .err { color: #e07070; }
+
+        /* ---- METRICS ROW ---- */
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 14px; margin: 24px 0;
+        }
+        .metric {
+            background: #0d0d0d;
+            border: 1px solid #181818;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+        }
+        .metric .big { font-size: 30px; font-weight: 800; color: #5b9ee6; }
+        .metric .sm { font-size: 12px; color: #777; margin-top: 3px; }
+
+        /* ---- STEPS ---- */
+        .steps { margin: 18px 0; }
+        .step {
+            display: flex; gap: 16px; margin-bottom: 22px;
+            align-items: flex-start;
+        }
+        .step-n {
+            min-width: 34px; height: 34px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 800; font-size: 13px; flex-shrink: 0;
+        }
+        .c1 .step-n { background: #112240; color: #3b82f6; }
+        .c2 .step-n { background: #1a1030; color: #a78bfa; }
+        .c3 .step-n { background: #0a1a20; color: #22d3ee; }
+        .c4 .step-n { background: #0a1a10; color: #34d399; }
+        .step-body { padding-top: 5px; }
+        .step-body strong { color: #fff; }
+
+        /* ---- TIP / WARN ---- */
+        .tip {
+            background: #0d1a0d; border: 1px solid #153a15;
+            border-radius: 8px; padding: 14px 18px;
+            margin: 14px 0; font-size: 14px; color: #6ec86e;
+        }
+        .tip::before { content: "\2713\00a0\00a0"; font-weight: 700; }
+        .warn {
+            background: #1a1a0d; border: 1px solid #3a3a15;
+            border-radius: 8px; padding: 14px 18px;
+            margin: 14px 0; font-size: 14px; color: #e0c85a;
+        }
+        .warn::before { content: "\26A0\00a0\00a0"; font-weight: 700; }
+        .danger {
+            background: #1a0d0d; border: 1px solid #3a1515;
+            border-radius: 8px; padding: 14px 18px;
+            margin: 14px 0; font-size: 14px; color: #e07070;
+        }
+        .danger::before { content: "\2717\00a0\00a0"; font-weight: 700; }
+
+        /* ---- TABLE ---- */
+        table {
+            width: 100%; border-collapse: collapse; margin: 18px 0;
+        }
+        th {
+            text-align: left; padding: 10px 14px;
+            background: #111; border: 1px solid #1e1e1e;
+            color: #777; font-size: 12px;
+            text-transform: uppercase; letter-spacing: 1px;
+        }
+        td {
+            padding: 10px 14px;
+            border: 1px solid #181818; font-size: 14px;
+        }
+        .good { color: #6ec86e; }
+        .bad { color: #e07070; }
+
+        /* ---- CHECKLIST ---- */
+        .checklist { list-style: none; padding: 0; margin: 20px 0; }
+        .checklist li {
+            padding: 12px 0 12px 36px;
+            position: relative;
+            border-bottom: 1px solid #151515;
+        }
+        .checklist li::before {
+            content: '';
+            position: absolute; left: 0; top: 14px;
+            width: 18px; height: 18px;
+            border: 2px solid #333; border-radius: 4px;
+        }
+        .checklist li strong { color: #fff; }
+
+        /* ---- FOOTER ---- */
+        .footer {
+            text-align: center;
+            padding: 48px 0 20px;
+            border-top: 1px solid #1a1a1a;
+            margin-top: 52px;
+        }
+        .footer p { color: #444; font-size: 13px; margin-bottom: 6px; }
+        .footer a { color: #5b9ee6; text-decoration: none; }
+
+        /* ---- PRINT ---- */
+        @media print {
+            body { background: #fff; color: #222; font-size: 14px; }
+            .card, .code, .metric { border-color: #ddd; background: #fafafa; }
+            .code pre { color: #333; }
+            h2, h3, strong { color: #111; }
+            .hero h1 { color: #111; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- ===== BACK NAV ===== -->
+    <div style="padding-top:16px;margin-bottom:-20px;">
+        <a href="/" style="font-size:13px;color:#5b9ee6;text-decoration:none;font-weight:600;">&larr; All Guides</a>
+    </div>
+
+    <!-- ===== HEADER ===== -->
+    <div class="hero">
+        <div class="badge">Guide 01 of 30</div>
+        <h1>Turn AI From a Chatbot<br>Into an Employee</h1>
+        <p class="sub">4 things. 30 minutes total setup. Everything you need to stop re-explaining your project every day and start delegating real work to AI.</p>
+        <p class="by">By <a href="https://linkedin.com/in/yashnujs">Yash Vijayvargiya</a></p>
+    </div>
+
+    <!-- ===== PROBLEM ===== -->
+    <div class="problem">
+        <div class="label">The problem this solves</div>
+        <p style="color:#daa;">If any of these sound familiar, this guide is for you:</p>
+        <ul>
+            <li>You re-explain your project from scratch every time you open AI</li>
+            <li>AI "forgets" decisions you made 30 minutes ago</li>
+            <li>Output quality drops noticeably in long sessions</li>
+            <li>You've restarted from scratch 3+ times in one day</li>
+            <li>AI ignores rules you clearly stated</li>
+            <li>You copy-paste answers one at a time instead of delegating whole tasks</li>
+            <li>You have no idea where your AI tokens are actually going</li>
+        </ul>
+    </div>
+
+    <!-- ===== QUICK NUMBERS ===== -->
+    <div class="metrics">
+        <div class="metric"><div class="big">20 min</div><div class="sm">Saved per session (no re-explaining)</div></div>
+        <div class="metric"><div class="big">200</div><div class="sm">Max lines for project rules</div></div>
+        <div class="metric"><div class="big">50%</div><div class="sm">Compact at this usage</div></div>
+        <div class="metric"><div class="big">3</div><div class="sm">Integrations to start with</div></div>
+    </div>
+
+    <!-- ===== BEFORE / AFTER ===== -->
+    <h4>What changes after this guide</h4>
+    <table>
+        <tr><th>Before</th><th>After</th></tr>
+        <tr><td class="bad">20 min re-explaining every session</td><td class="good">0 min. AI remembers your project permanently.</td></tr>
+        <tr><td class="bad">Output degrades after 30-45 min</td><td class="good">Clean output for hours with managed memory.</td></tr>
+        <tr><td class="bad">AI ignores 30-40% of your rules</td><td class="good">90-95% compliance with lean instruction file.</td></tr>
+        <tr><td class="bad">AI can only see your local files</td><td class="good">AI reads your code repo, browses web, tests in browser.</td></tr>
+        <tr><td class="bad">You explain your standards every time</td><td class="good">AI already knows them. Written once, used forever.</td></tr>
+        <tr><td class="bad">You query AI one question at a time</td><td class="good">You delegate whole tasks. AI executes end-to-end.</td></tr>
+    </table>
+
+    <hr class="sep">
+
+    <!-- =============================================== -->
+    <!-- THING 1: PERMANENT MEMORY                       -->
+    <!-- =============================================== -->
+    <div class="card c1">
+        <div class="num">Thing 1 of 4</div>
+        <h2>Give AI a Permanent Memory of Your Project</h2>
+        <p class="desc">One file that AI reads at the start of every session. No more re-explaining. Ever.</p>
+
+        <h4>What this is</h4>
+        <p>A file called <strong>CLAUDE.md</strong> in your project's root folder. Every time Claude Code opens your project, it reads this file first -- before you type anything.</p>
+        <p>Think of it as the onboarding document you'd give a new team member on their first day. Except this team member reads it perfectly, every single morning, and never loses it.</p>
+
+        <h4>Quickstart (10 minutes)</h4>
+        <div class="steps">
+            <div class="step">
+                <div class="step-n">1</div>
+                <div class="step-body">
+                    <strong>Auto-generate a starter file</strong><br>
+                    Open Claude Code in your project folder and type <code>/init</code>. Claude will scan your entire codebase -- files, folder structure, dependencies, configs -- and generate a CLAUDE.md tailored to your project. This gives you 80% of a good file in 30 seconds.
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-n">2</div>
+                <div class="step-body">
+                    <strong>Trim ruthlessly to under 200 lines</strong><br>
+                    For every line, ask one question: "Would Claude get this wrong WITHOUT being told?" If it can figure it out by reading the code, delete the line. Claude can read your files directly -- it doesn't need you to describe what it can see. The goal is a lean, high-signal file.
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-n">3</div>
+                <div class="step-body">
+                    <strong>Add your "Do NOT" list</strong><br>
+                    Every mistake Claude has made on your project? Add it. "Do NOT delete database tables without approval." "Do NOT use relative imports across modules." This list grows over time and is the most valuable section. It turns past mistakes into permanent guardrails.
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-n">4</div>
+                <div class="step-body">
+                    <strong>Commit it to your code repository</strong><br>
+                    This isn't a personal config. It's a team asset. When you commit CLAUDE.md to your repo, every person on the team who uses Claude Code gets the same rules, the same standards, the same guardrails. Consistency across the entire team from one file.
+                </div>
+            </div>
+        </div>
+
+        <h4>The template (copy and customize)</h4>
+        <div class="code">
+            <div class="file">CLAUDE.md</div>
+<pre><span class="cm"># [Your Project Name]</span>
+<span class="cm"># One-liner: What this project does and who it's for.</span>
+
+<span class="cm">## How to Run</span>
+<span class="kw">- Build:</span> <span class="vl">npm run build</span>
+<span class="kw">- Test all:</span> <span class="vl">npm test</span>
+<span class="kw">- Test one file:</span> <span class="vl">npm test -- --testPathPattern="filename"</span>
+<span class="kw">- Lint:</span> <span class="vl">npm run lint</span>
+<span class="kw">- Dev server:</span> <span class="vl">npm run dev</span>
+
+<span class="cm">## Code Style</span>
+<span class="kw">-</span> TypeScript strict mode everywhere
+<span class="kw">-</span> Functional components with hooks (no class components)
+<span class="kw">-</span> Named exports only (no default exports)
+<span class="kw">-</span> Use async/await, never raw Promises
+
+<span class="cm">## Architecture</span>
+<span class="kw">-</span> src/api/         -- REST endpoints
+<span class="kw">-</span> src/services/     -- Business logic (no HTTP awareness)
+<span class="kw">-</span> src/db/           -- Database queries
+<span class="kw">-</span> src/components/   -- React UI components
+<span class="kw">-</span> src/utils/        -- Shared helpers
+
+<span class="cm">## Key Decisions</span>
+<span class="kw">-</span> Auth: Session-based with Redis store (not JWT)
+<span class="kw">-</span> Database: PostgreSQL via Prisma ORM
+<span class="kw">-</span> State management: React Query for server state, Zustand for client
+
+<span class="cm">## Do NOT</span>
+<span class="hl">- Do NOT run destructive database commands without asking first</span>
+<span class="hl">- Do NOT add new dependencies without checking existing ones</span>
+<span class="hl">- Do NOT modify migration files after they've been committed</span>
+<span class="hl">- Do NOT use console.log (use the logger utility instead)</span>
+<span class="hl">- Do NOT skip writing tests for new functions</span>
+<span class="hl">- Do NOT use relative imports across module boundaries</span></pre>
+        </div>
+
+        <div class="warn">Keep this file under 200 lines. We've measured across teams: every unnecessary line reduces how well AI follows your instructions by about 0.5%. A 600-line file means roughly 40% of your rules get ignored. Shorter is better. Always.</div>
+
+        <h4>Advanced: Split rules into topic-specific files</h4>
+        <p>For larger projects, move specialized rules out of CLAUDE.md and into separate files. Claude loads all of them automatically.</p>
+
+        <div class="code">
+            <div class="file">.claude/rules/testing.md</div>
+<pre><span class="cm"># Testing Rules</span>
+
+<span class="kw">-</span> Always run the full test suite after changes
+<span class="kw">-</span> Use describe/it blocks, not test()
+<span class="kw">-</span> Mock external APIs, never mock the database
+<span class="kw">-</span> Every new function needs at least 2 test cases
+<span class="kw">-</span> Test both the happy path and one error case</pre>
+        </div>
+
+        <div class="code">
+            <div class="file">.claude/rules/security.md</div>
+<pre><span class="cm"># Security Rules</span>
+
+<span class="kw">-</span> Never log sensitive data (passwords, tokens, PII)
+<span class="kw">-</span> Always validate user input at the API boundary
+<span class="kw">-</span> Use parameterized queries -- never concatenate SQL strings
+<span class="kw">-</span> Never commit .env files or API keys
+<span class="kw">-</span> All endpoints require authentication unless explicitly public</pre>
+        </div>
+
+        <div class="code">
+            <div class="file">.claude/rules/frontend.md</div>
+<pre><span class="cm">---</span>
+<span class="kw">paths:</span> <span class="vl">["src/components/**", "src/pages/**"]</span>
+<span class="cm">---</span>
+<span class="cm"># Frontend Rules (only loads for frontend files)</span>
+
+<span class="kw">-</span> Use Tailwind CSS, no inline styles or CSS modules
+<span class="kw">-</span> All components must be accessible (WCAG 2.1 AA)
+<span class="kw">-</span> Use React Query for data fetching, not useEffect
+<span class="kw">-</span> Loading and error states required on every data-fetching component</pre>
+        </div>
+
+        <div class="tip">Path-scoping is powerful. When you add <code>paths: ["src/components/**"]</code> at the top of a rule file, those rules only load when Claude is working on matching files. Your backend rules won't clutter the context when Claude is editing a React component, and vice versa. This keeps AI focused and saves context space.</div>
+
+        <h4>The golden rule (from the creator of Claude Code)</h4>
+        <p>"Every time we see Claude do something wrong, we add it to CLAUDE.md so it doesn't happen again."</p>
+        <p>CLAUDE.md is a living document. After every session where Claude made a mistake you had to correct, add a line. Over weeks, this file becomes a distilled encyclopedia of how your project works and what to avoid. The compound effect is enormous -- Claude gets noticeably better at your project every week.</p>
+    </div>
+
+    <!-- =============================================== -->
+    <!-- THING 2: SESSION MEMORY MANAGEMENT              -->
+    <!-- =============================================== -->
+    <div class="card c2">
+        <div class="num">Thing 2 of 4</div>
+        <h2>Manage AI's Working Memory</h2>
+        <p class="desc">Why AI "gets dumber" in long sessions, and the one command that fixes it.</p>
+
+        <h4>The problem</h4>
+        <p>AI's conversation is its working memory. Like a whiteboard in a meeting room -- as you fill it up, things get crowded, older notes get hard to read, and eventually someone has to erase and start over.</p>
+        <p>Except most people don't erase strategically. They wait until the whiteboard is completely full, and by then the AI has been producing degraded output for 20+ minutes.</p>
+
+        <h4>The degradation curve</h4>
+        <table>
+            <tr><th>Context Usage</th><th>What Happens</th><th>What You Should Do</th></tr>
+            <tr>
+                <td><strong>0-50%</strong></td>
+                <td class="good">Sharp. Accurate. Follows every instruction.</td>
+                <td>Work freely. This is peak performance.</td>
+            </tr>
+            <tr>
+                <td><strong>50-70%</strong></td>
+                <td style="color:#e0c85a;">Starts missing small details. Slightly less precise.</td>
+                <td style="color:#e0c85a;">Pay attention. Prepare to compact soon.</td>
+            </tr>
+            <tr>
+                <td><strong>70-85%</strong></td>
+                <td class="bad">Forgets earlier decisions. Ignores some rules.</td>
+                <td><strong style="color:#e0c85a;">/compact NOW. Don't wait.</strong></td>
+            </tr>
+            <tr>
+                <td><strong>85%+</strong></td>
+                <td class="bad">Hallucinating. Re-introducing bugs it already fixed.</td>
+                <td><strong style="color:#e07070;">/clear. Start a fresh session.</strong></td>
+            </tr>
+        </table>
+
+        <div class="danger">Auto-compaction triggers at about 83.5% of the context window. By that point, quality has already been degrading for 15-20 minutes. Always compact manually before you hit that threshold.</div>
+
+        <h4>The commands you need</h4>
+        <div class="code">
+<pre><span class="cm"># Check how full your context is right now</span>
+<span class="kw">/cost</span>
+
+<span class="cm"># See exactly WHERE your context is being used</span>
+<span class="cm"># (conversation, tools, memory, skills -- broken down by %)</span>
+<span class="kw">/context</span>
+
+<span class="cm"># Compress your conversation -- AI decides what to keep</span>
+<span class="kw">/compact</span>
+
+<span class="cm"># Compress with YOUR instructions on what matters</span>
+<span class="cm"># (this is the important one -- you control what survives)</span>
+<span class="kw">/compact</span> <span class="vl">"Keep the API design decisions we made and the list of
+modified files. Keep the test commands. Summarize everything else."</span>
+
+<span class="cm"># Wipe conversation completely -- fresh start</span>
+<span class="kw">/clear</span>
+
+<span class="cm"># Ask a side question WITHOUT polluting your main context</span>
+<span class="cm"># (response is ephemeral, doesn't affect your work)</span>
+<span class="kw">/btw</span> <span class="vl">"What's the syntax for a PostgreSQL upsert?"</span></pre>
+        </div>
+
+        <h4>The schedule we follow</h4>
+        <div class="steps">
+            <div class="step">
+                <div class="step-n" style="background:#1a1030;color:#a78bfa;">1</div>
+                <div class="step-body">
+                    <strong>Every 45 minutes: check /cost</strong><br>
+                    If above 50%, compact with a focus directive. This takes 5 seconds and buys you another 45 minutes of clean output.
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-n" style="background:#1a1030;color:#a78bfa;">2</div>
+                <div class="step-body">
+                    <strong>After any debugging session: compact the failed attempts</strong><br>
+                    Debugging generates a lot of context -- wrong hypotheses, failed attempts, error logs. Once you find the fix, compact away the noise and keep only the solution.
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-n" style="background:#1a1030;color:#a78bfa;">3</div>
+                <div class="step-body">
+                    <strong>Between unrelated tasks: /clear completely</strong><br>
+                    Finished a feature? About to start something different? Don't carry the old context forward. Fresh session with your CLAUDE.md gives cleaner results than a bloated session with stale history.
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-n" style="background:#1a1030;color:#a78bfa;">4</div>
+                <div class="step-body">
+                    <strong>For side questions: always use /btw</strong><br>
+                    Need a quick syntax lookup? A definition? A formula? Use /btw instead of asking in the main conversation. It doesn't pollute your context. Claude answers and goes right back to what it was doing.
+                </div>
+            </div>
+        </div>
+
+        <h4>Advanced: Auto-recover critical context after compaction</h4>
+        <p>The #1 complaint about compaction: "It forgot the important stuff." Here's how to make critical context survive every compaction automatically.</p>
+        <p>Create a hook that re-injects your non-negotiable context after any compaction event:</p>
+
+        <div class="code">
+            <div class="file">.claude/settings.json</div>
+<pre>{
+  <span class="kw">"hooks"</span>: {
+    <span class="vl">"PostCompaction"</span>: [
+      {
+        <span class="kw">"command"</span>: <span class="vl">"cat .claude/must-remember.md"</span>,
+        <span class="kw">"description"</span>: <span class="vl">"Re-inject critical context after compaction"</span>
+      }
+    ]
+  }
+}</pre>
+        </div>
+
+        <div class="code">
+            <div class="file">.claude/must-remember.md</div>
+<pre><span class="cm"># CRITICAL CONTEXT (auto-injected after every compaction)</span>
+
+<span class="kw">Current task:</span> <span class="vl">Migrating auth from JWT to session-based tokens</span>
+<span class="kw">Modified files:</span> <span class="vl">src/auth/*, src/middleware/session.ts, src/db/sessions.ts</span>
+<span class="kw">Test command:</span> <span class="vl">npm test -- --testPathPattern="auth"</span>
+<span class="kw">Key constraint:</span> <span class="vl">Must maintain backward compat with mobile API v2</span>
+<span class="kw">Decision made:</span> <span class="vl">Using Redis for session storage (decided hour 1)</span>
+<span class="kw">Decision made:</span> <span class="vl">Session TTL = 24 hours (decided hour 2)</span></pre>
+        </div>
+
+        <div class="tip">Update must-remember.md as decisions are made during the session. This file becomes your "sticky notes on the whiteboard" -- the things that must never be erased, no matter how many times the board gets cleared.</div>
+    </div>
+
+    <!-- =============================================== -->
+    <!-- THING 3: SAVED STANDARDS                        -->
+    <!-- =============================================== -->
+    <div class="card c3">
+        <div class="num">Thing 3 of 4</div>
+        <h2>Teach AI Your Standards Once</h2>
+        <p class="desc">Stop re-explaining how you want things done. Write it once. AI follows it every time.</p>
+
+        <h4>What this is</h4>
+        <p>Skills are saved instruction files that tell AI how to handle specific tasks. Unlike CLAUDE.md (which loads every session), skills only load when the task matches -- keeping your context lean.</p>
+        <p>Think of it as standard operating procedures for your AI. "Here's how we do code reviews." "Here's how we write tests." "Here's how we structure API endpoints."</p>
+
+        <h4>Install the three most valuable community skills</h4>
+
+        <div class="code">
+<pre><span class="cm"># 1. Frontend Design (277,000+ installs)</span>
+<span class="cm"># Gives AI a design system and philosophy before it touches any UI code.</span>
+<span class="cm"># Result: cleaner interfaces, consistent spacing, better accessibility.</span>
+
+<span class="cm"># 2. Planning with Files</span>
+<span class="cm"># Forces AI to write a structured plan (research.md, plan.md) before coding.</span>
+<span class="cm"># Result: fewer wrong assumptions, cleaner first-pass implementations.</span>
+
+<span class="cm"># 3. Computer Use Demo</span>
+<span class="cm"># Teaches AI to interact with desktop applications, browsers, and GUIs.</span>
+<span class="cm"># Result: AI can test your app visually, not just read the code.</span></pre>
+        </div>
+
+        <h4>Create your own skill (5 minutes)</h4>
+        <p>Community skills are useful. But the skills you write yourself -- specific to your team, your standards, your workflow -- are 10x more valuable because they encode knowledge nobody else has.</p>
+
+        <div class="code">
+            <div class="file">~/.claude/skills/code-review/SKILL.md</div>
+<pre><span class="cm">---</span>
+<span class="kw">name:</span> <span class="vl">code-review</span>
+<span class="kw">description:</span> <span class="vl">Reviews code for security, performance, and our team's standards</span>
+<span class="cm">---</span>
+
+When reviewing code, follow this checklist:
+
+<span class="hl">## Security (block merge if any found)</span>
+<span class="kw">-</span> Check for SQL injection (no string concatenation in queries)
+<span class="kw">-</span> Check for XSS (all user input sanitized before rendering)
+<span class="kw">-</span> Check for exposed secrets (no API keys, passwords, tokens in code)
+<span class="kw">-</span> Check for insecure direct object references
+
+<span class="hl">## Performance (flag for discussion)</span>
+<span class="kw">-</span> Identify N+1 database queries
+<span class="kw">-</span> Flag missing database indexes on filtered/sorted columns
+<span class="kw">-</span> Check for unnecessary re-renders in React components
+<span class="kw">-</span> Flag synchronous operations that should be async
+
+<span class="hl">## Code Quality (suggest improvements)</span>
+<span class="kw">-</span> Functions longer than 40 lines should be split
+<span class="kw">-</span> All public functions must have TypeScript type signatures
+<span class="kw">-</span> Error handling must cover network failures and timeouts
+<span class="kw">-</span> No magic numbers -- use named constants
+
+<span class="hl">## Output Format</span>
+<span class="err">CRITICAL:</span> Security issues (must fix before merge)
+<span class="hl">WARNING:</span> Performance issues (should fix)
+<span class="cm">INFO:</span> Style and quality suggestions (nice to fix)
+
+Always run the test suite after suggesting changes.
+Show the test results in your response.</pre>
+        </div>
+
+        <div class="code">
+            <div class="file">~/.claude/skills/api-endpoint/SKILL.md</div>
+<pre><span class="cm">---</span>
+<span class="kw">name:</span> <span class="vl">api-endpoint</span>
+<span class="kw">description:</span> <span class="vl">Creates new API endpoints following our conventions</span>
+<span class="cm">---</span>
+
+When creating a new API endpoint:
+
+<span class="kw">1.</span> Create the route in src/api/[resource].ts
+<span class="kw">2.</span> Create the service in src/services/[resource].ts
+<span class="kw">3.</span> Create the database query in src/db/[resource].ts
+<span class="kw">4.</span> Add input validation using Zod schemas
+<span class="kw">5.</span> Add error handling (try/catch with proper HTTP status codes)
+<span class="kw">6.</span> Write tests in src/__tests__/api/[resource].test.ts
+<span class="kw">7.</span> Update the API documentation
+
+<span class="hl">Rules:</span>
+<span class="kw">-</span> Services must never import from src/api/ (no HTTP awareness)
+<span class="kw">-</span> All responses follow: { data, error, meta } format
+<span class="kw">-</span> Pagination uses cursor-based, not offset-based
+<span class="kw">-</span> All endpoints require auth middleware unless explicitly marked public</pre>
+        </div>
+
+        <div class="warn">Keep each skill under 2,000 tokens. A good skill does one thing well. If your skill file is getting long, split it into two separate skills. Claude loads them independently, so there's no cost to having many small skills instead of one big one.</div>
+
+        <h4>Skills vs. CLAUDE.md -- when to use which</h4>
+        <table>
+            <tr><th></th><th>CLAUDE.md</th><th>Skills</th></tr>
+            <tr>
+                <td><strong>When it loads</strong></td>
+                <td>Every session, always</td>
+                <td>Only when the task matches</td>
+            </tr>
+            <tr>
+                <td><strong>Best for</strong></td>
+                <td>Universal project rules everyone needs</td>
+                <td>Specialized workflows for specific tasks</td>
+            </tr>
+            <tr>
+                <td><strong>Context cost</strong></td>
+                <td>Always uses context space</td>
+                <td>Only uses context when active</td>
+            </tr>
+            <tr>
+                <td><strong>Examples</strong></td>
+                <td>Build commands, code style, "do NOT" list</td>
+                <td>Code review process, API scaffolding, deploy checklist</td>
+            </tr>
+        </table>
+
+        <div class="tip">Rule of thumb: If AI needs to know it on every task, put it in CLAUDE.md. If AI only needs it for specific tasks, make it a skill.</div>
+    </div>
+
+    <!-- =============================================== -->
+    <!-- THING 4: EXTERNAL INTEGRATIONS                  -->
+    <!-- =============================================== -->
+    <div class="card c4">
+        <div class="num">Thing 4 of 4</div>
+        <h2>Give AI Eyes and Hands Beyond Your Code</h2>
+        <p class="desc">By default, AI only sees files on your machine. Integration servers connect it to the outside world.</p>
+
+        <h4>What this changes</h4>
+        <p>Without integrations, AI is like an employee locked in a room with only your source code. They can read the code, but they can't check the bug report, can't look at the live app, can't search for documentation, can't run a browser test.</p>
+        <p>With integrations, that same employee has a desk with a browser, access to your code repository, and the ability to look up anything they need.</p>
+
+        <h4>The 3-server starter stack (15 minutes total setup)</h4>
+
+        <div class="steps">
+            <div class="step">
+                <div class="step-n" style="background:#0a1a10;color:#34d399;">1</div>
+                <div class="step-body">
+                    <strong>Code Repository Server</strong><br>
+                    Connects AI to your GitHub/GitLab. AI can read pull requests, review code, search across repositories, create branches, and manage issues -- all from within your terminal session.<br><br>
+                    <em>What changes:</em> Instead of copy-pasting a bug report into the AI chat, you say "read issue #47 and fix it." AI reads the issue, finds the file, makes the fix, runs the tests.
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-n" style="background:#0a1a10;color:#34d399;">2</div>
+                <div class="step-body">
+                    <strong>Browser Automation Server</strong><br>
+                    Gives AI a real browser. It can navigate to pages, click buttons, fill forms, take screenshots, and run end-to-end test scenarios.<br><br>
+                    <em>What changes:</em> After making a UI change, AI opens the browser, navigates to the page, takes a screenshot, and verifies the change looks correct. No more "it works in the code but looks broken in the browser."
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-n" style="background:#0a1a10;color:#34d399;">3</div>
+                <div class="step-body">
+                    <strong>Web Search Server</strong><br>
+                    Gives AI access to search the web. It can look up current documentation, find solutions on developer forums, check release notes, and verify information.<br><br>
+                    <em>What changes:</em> When AI encounters an unfamiliar library or a deprecation warning, it searches for the current docs instead of guessing based on training data that might be outdated.
+                </div>
+            </div>
+        </div>
+
+        <div class="code">
+<pre><span class="cm"># Add integration servers (one command each)</span>
+<span class="kw">claude mcp add</span> <span class="vl">github</span>
+<span class="kw">claude mcp add</span> <span class="vl">playwright</span>
+<span class="kw">claude mcp add</span> <span class="vl">brave-search</span>
+
+<span class="cm"># Verify what's connected</span>
+<span class="kw">claude mcp list</span>
+
+<span class="cm"># Check how much context your integrations are using</span>
+<span class="kw">/context</span>
+
+<span class="cm"># Remove an integration you're not using</span>
+<span class="kw">claude mcp remove</span> <span class="vl">[server-name]</span></pre>
+        </div>
+
+        <div class="danger">Every integration adds tool schemas to your AI's context window. One developer measured 30-40% of their entire context going to tool schemas that were never used. They had installed 14 servers and were actively using 3. Start with 3. Check /context regularly. Remove anything you haven't used in the past week. More is not better -- lean is better.</div>
+
+        <h4>The weekly cleanup (2 minutes)</h4>
+        <p>Every Monday morning, we run this quick check:</p>
+
+        <div class="code">
+<pre><span class="cm"># 1. See what's connected</span>
+<span class="kw">claude mcp list</span>
+
+<span class="cm"># 2. Check how much context they're using</span>
+<span class="kw">/context</span>
+
+<span class="cm"># 3. If "Tool schemas" is above 15-20% of context:</span>
+<span class="cm">#    Remove servers you didn't use last week</span>
+<span class="kw">claude mcp remove</span> <span class="vl">[unused-server]</span></pre>
+        </div>
+
+        <div class="tip">Think of integrations like apps on your phone. Install only what you actively use. Uninstall the rest. You can always re-add one in 30 seconds when you need it.</div>
+    </div>
+
+    <hr class="sep">
+
+    <!-- ===== FULL CHECKLIST ===== -->
+    <h4>Complete setup checklist</h4>
+    <p>Everything in this guide, in order. Total time: about 30 minutes.</p>
+
+    <ul class="checklist">
+        <li><strong>Run /init</strong> in your project root to auto-generate CLAUDE.md</li>
+        <li><strong>Review and trim</strong> CLAUDE.md to under 200 lines (delete anything AI would get right without)</li>
+        <li><strong>Add your "Do NOT" list</strong> -- every past AI mistake becomes a permanent rule</li>
+        <li><strong>Create .claude/rules/</strong> directory and split specialized rules into topic files</li>
+        <li><strong>Add path-scoping</strong> to rules that only apply to certain folders</li>
+        <li><strong>Create .claude/must-remember.md</strong> for critical context that must survive compaction</li>
+        <li><strong>Set up the post-compaction hook</strong> in .claude/settings.json</li>
+        <li><strong>Install 3 community skills:</strong> frontend-design, planning-with-files, computer-use-demo</li>
+        <li><strong>Create 1 custom skill</strong> for your team's most repeated workflow (code review, API creation, etc.)</li>
+        <li><strong>Connect 3 integration servers:</strong> code repository + browser automation + web search</li>
+        <li><strong>Run /context</strong> to see your baseline token distribution</li>
+        <li><strong>Commit CLAUDE.md, .claude/rules/, and .claude/settings.json</strong> to your repository</li>
+        <li><strong>Set a weekly reminder</strong> to run the 2-minute integration cleanup</li>
+    </ul>
+
+    <hr class="sep">
+
+    <!-- ===== QUICK REFERENCE ===== -->
+    <h4>Quick reference: commands you'll use daily</h4>
+
+    <div class="code">
+<pre><span class="kw">/init</span>              <span class="cm"># Generate CLAUDE.md from codebase analysis</span>
+<span class="kw">/cost</span>              <span class="cm"># Check current context usage (%)</span>
+<span class="kw">/context</span>           <span class="cm"># Detailed breakdown of where tokens go</span>
+<span class="kw">/compact</span>           <span class="cm"># Compress conversation (always add focus directive)</span>
+<span class="kw">/clear</span>             <span class="cm"># Wipe conversation, fresh start</span>
+<span class="kw">/btw [question]</span>    <span class="cm"># Side question without polluting context</span>
+<span class="kw">/effort max</span>        <span class="cm"># Maximum thinking depth for the session</span>
+<span class="kw">/memory</span>            <span class="cm"># Browse and edit auto-saved memories</span>
+<span class="kw">/rewind</span>            <span class="cm"># Roll back to a previous checkpoint</span>
+<span class="kw">Shift+Tab</span>          <span class="cm"># Toggle Plan Mode (read-only analysis)</span>
+<span class="kw">Esc</span>                <span class="cm"># Stop AI mid-action</span>
+<span class="kw">Esc + Esc</span>          <span class="cm"># Open checkpoint history to restore earlier state</span>
+<span class="kw">claude mcp list</span>    <span class="cm"># See connected integration servers</span>
+<span class="kw">claude mcp add</span>     <span class="cm"># Connect a new integration server</span>
+<span class="kw">claude mcp remove</span>  <span class="cm"># Disconnect an integration server</span></pre>
+    </div>
+
+    <hr class="sep">
+
+    <!-- ===== TROUBLESHOOTING ===== -->
+    <h4>Common problems and fixes</h4>
+
+    <table>
+        <tr><th>Problem</th><th>Cause</th><th>Fix</th></tr>
+        <tr>
+            <td>AI ignores rules in CLAUDE.md</td>
+            <td>File is too long (over 200 lines)</td>
+            <td>Trim to under 200 lines. Move details to .claude/rules/</td>
+        </tr>
+        <tr>
+            <td>AI "forgets" things after an hour</td>
+            <td>Context window is above 70%</td>
+            <td>Run /compact with focus directive at 50%</td>
+        </tr>
+        <tr>
+            <td>Output quality suddenly dropped</td>
+            <td>Too many integration tool schemas</td>
+            <td>Run /context. Remove unused servers.</td>
+        </tr>
+        <tr>
+            <td>AI keeps making the same mistake</td>
+            <td>Not in CLAUDE.md's "Do NOT" list</td>
+            <td>Add it. "Do NOT [the thing it keeps doing]"</td>
+        </tr>
+        <tr>
+            <td>Critical decisions lost after compaction</td>
+            <td>No post-compaction hook</td>
+            <td>Set up must-remember.md with auto-injection hook</td>
+        </tr>
+        <tr>
+            <td>AI runs destructive command</td>
+            <td>Rule is in CLAUDE.md (advisory, ~80%)</td>
+            <td>Move to a PreToolUse hook (deterministic, 100%)</td>
+        </tr>
+        <tr>
+            <td>AI doesn't know about recent changes</td>
+            <td>No web search integration</td>
+            <td>Add a web search server so AI can look things up</td>
+        </tr>
+        <tr>
+            <td>Same setup for the whole team</td>
+            <td>CLAUDE.md not committed to repo</td>
+            <td>Commit CLAUDE.md + .claude/ folder to your repository</td>
+        </tr>
+    </table>
+
+    <!-- ===== FOOTER ===== -->
+    <div class="footer">
+        <p>Built by <a href="https://linkedin.com/in/yashnujs">Yash Vijayvargiya</a></p>
+        <p style="margin-top:6px;">Follow for more AI implementation guides.</p>
+        <p style="margin-top:16px;color:#333;font-size:11px;">Researched from 248 tips across r/ClaudeAI, r/ClaudeCode, Twitter/X, and 35+ technical blogs (Jan-Apr 2026)</p>
+    </div>
+
+</div>
+</body>
+</html>
